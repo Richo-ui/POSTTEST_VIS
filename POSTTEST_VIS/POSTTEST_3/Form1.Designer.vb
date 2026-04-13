@@ -62,6 +62,7 @@ Partial Class Form1
         gbKelamin.SuspendLayout()
         gbHobi.SuspendLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).BeginInit()
+        Panel3.SuspendLayout()
         Panel4.SuspendLayout()
         SuspendLayout()
         ' 
@@ -420,15 +421,15 @@ Partial Class Form1
         ' Panel1
         ' 
         Panel1.BackColor = Color.FromArgb(CByte(64), CByte(0), CByte(0))
-        Panel1.Location = New Point(44, 128)
+        Panel1.Location = New Point(48, 130)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(207, 281)
+        Panel1.Size = New Size(200, 278)
         Panel1.TabIndex = 6
         ' 
         ' Panel2
         ' 
         Panel2.BackColor = Color.Black
-        Panel2.Location = New Point(143, 61)
+        Panel2.Location = New Point(0, 4)
         Panel2.Name = "Panel2"
         Panel2.Size = New Size(390, 51)
         Panel2.TabIndex = 6
@@ -436,6 +437,7 @@ Partial Class Form1
         ' Panel3
         ' 
         Panel3.BackColor = Color.Maroon
+        Panel3.Controls.Add(Panel2)
         Panel3.Location = New Point(143, 55)
         Panel3.Name = "Panel3"
         Panel3.Size = New Size(390, 55)
@@ -445,7 +447,7 @@ Partial Class Form1
         ' 
         Panel4.BackColor = Color.Black
         Panel4.Controls.Add(Label6)
-        Panel4.Location = New Point(143, 8)
+        Panel4.Location = New Point(143, 6)
         Panel4.Name = "Panel4"
         Panel4.Size = New Size(390, 51)
         Panel4.TabIndex = 6
@@ -475,7 +477,6 @@ Partial Class Form1
         Controls.Add(Label1)
         Controls.Add(txtAlamat)
         Controls.Add(Panel4)
-        Controls.Add(Panel2)
         Controls.Add(Panel1)
         Controls.Add(Panel3)
         Name = "Form1"
@@ -486,6 +487,7 @@ Partial Class Form1
         gbHobi.ResumeLayout(False)
         gbHobi.PerformLayout()
         CType(PictureBox2, ComponentModel.ISupportInitialize).EndInit()
+        Panel3.ResumeLayout(False)
         Panel4.ResumeLayout(False)
         Panel4.PerformLayout()
         ResumeLayout(False)
