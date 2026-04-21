@@ -42,7 +42,7 @@
 
     Private Sub btnSimpan_Click(sender As Object, e As EventArgs) Handles btnSimpan.Click
 
-        If Not ValidasiAnime(txtJudul.Text, AmbilGenre(), txtEpisode.Text, txtStudio.Text, txtRating.Text) Then Exit Sub
+        If Not ValidasiAnime(txtJudul.Text, AmbilGenre(), txtEpisode.Text, txtStudio.Text, txtRating.Text, pbPhoto.Tag.ToString) Then Exit Sub
 
         If JudulsudahAda(txtJudul.Text) Then
             MessageBox.Show("Judul sudah ada, silakan gunakan judul lain.", "Validasi Gagal",
@@ -50,7 +50,7 @@
             Exit Sub
         End If
 
-        If SimpanAnime(txtJudul.Text, AmbilGenre(), CInt(txtEpisode.Text), txtStudio.Text, CDbl(txtRating.Text)) Then
+        If SimpanAnime(txtJudul.Text, AmbilGenre(), txtEpisode.Text, txtStudio.Text, txtRating.Text, pbPhoto.Tag.ToString) Then
             MessageBox.Show("Data anime berhasil disimpan.", "Sukses",
             MessageBoxButtons.OK, MessageBoxIcon.Information)
             TampilData()
@@ -61,7 +61,7 @@
 
     Private Sub btnUbah_Click(sender As Object, e As EventArgs) Handles btnUbah.Click
 
-        If Not ValidasiAnime(txtJudul.Text, AmbilGenre(), txtEpisode.Text, txtStudio.Text, txtRating.Text) Then Exit Sub
+        If Not ValidasiAnime(txtJudul.Text, AmbilGenre(), txtEpisode.Text, txtStudio.Text, txtRating.Text, pbPhoto.Tag.ToString) Then Exit Sub
 
         Dim judul As String = txtJudul.Text.Trim()
         Dim genre As String = AmbilGenre()
@@ -147,6 +147,18 @@
     End Sub
 
     Private Sub txtJudul_TextChanged(sender As Object, e As EventArgs) Handles txtJudul.TextChanged
+
+    End Sub
+
+    Private Sub btnCari_Click(sender As Object, e As EventArgs) Handles btnCari.Click
+
+        Dim ofd As New OpenFileDialog
+        ofd.Filter = "Image Files|*.jpg;*.jpeg;*.png"
+
+        If ofd.ShowDialog = DialogResult.OK Then
+            pbPhoto.Image = Image.FromFile(ofd.FileName)
+            pbPhoto.Tag = ofd.FileName
+        End If
 
     End Sub
 End Class
